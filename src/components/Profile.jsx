@@ -21,7 +21,9 @@ const Profile = () => {
                     <div className={prof.profile__webSite}>Web-site: https://greenshok.ssenick.fun</div>
                 </div>
             </div>
-            <div className="profile__myPosts"></div>
+            <div className="profile__myPosts">
+                sdfsdfdsfds
+            </div>
         </div>
     )
 }
