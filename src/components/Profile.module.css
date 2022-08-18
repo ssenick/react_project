@@ -50,7 +50,8 @@
 }
 
 .profile__date,
-.profile__city,.profile__web-site{
+.profile__city, .profile__webSite {
     margin-bottom: 5px;
+
     font-size: 16px;
 }
