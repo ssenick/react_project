@@ -21,7 +21,6 @@ const Profile = () => {
             </div>
             <div className="profile__my-posts"></div>
         </div>
-
     )
 }
 
