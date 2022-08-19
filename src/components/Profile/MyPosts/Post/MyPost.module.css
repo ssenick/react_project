@@ -1,0 +1,38 @@
+.post {
+    display: flex;
+    align-items: flex-start;
+    background-color: #cdffdd;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.postImage {
+    position: relative;
+    padding-bottom: 12%;
+    width: 20%;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.postImage img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.postText {
+    font-size: 16px;
+    padding-left: 15px;
+}
+
+.postLike {
+    margin-left: auto;
+
+}
+
+.postLike span {
+    font-weight: 700;
+}
