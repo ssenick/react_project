@@ -3,14 +3,12 @@
     align-items: flex-start;
     background-color: #cdffdd;
     padding: 15px;
-    border-radius: 10px;
 }
 
 .postImage {
     position: relative;
     padding-bottom: 12%;
     width: 20%;
-    border-radius: 10px;
     overflow: hidden;
 }
 
