@@ -9,8 +9,9 @@ const Content = () => {
       <BrowserRouter>
          <div className="content">
             <Routes>
-               <Route path="/dialogs" element={<Dialogs/>}/>
+               <Route path="/" element={<Profile/>}/>
                <Route path="/profile" element={<Profile/>}/>
+               <Route path="/dialogs" element={<Dialogs/>}/>
             </Routes>
             {/*<Dialogs/>*/}
             {/*<Profile />*/}
