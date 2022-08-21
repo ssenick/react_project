@@ -1,25 +1,27 @@
 import React from "react";
 import s from "./Nav.module.css";
-import {Link} from "react-router-dom";
+import {NavLink} from "react-router-dom";
+
+const color = ({isActive}) => ({color: isActive ? 'red' : ""});
 
 const Nav = () => {
    return (
       <nav className={s.nav}>
          <ul>
             <li>
-               <Link to="/profile" className={s.item}>
+               <NavLink to="/profile" style={color} className={s.item}>
                   Profile
-               </Link>
+               </NavLink>
             </li>
             <li>
-               <Link to="/dialogs" className={s.item}>
+               <NavLink to="/dialogs" style={color} className={s.item}>
                   Messeges
-               </Link>
+               </NavLink>
             </li>
             <li>
-               <Link to="/login" className={s.item}>
+               <NavLink to="/login" style={color} className={s.item}>
                   Login
-               </Link>
+               </NavLink>
             </li>
          </ul>
       </nav>
