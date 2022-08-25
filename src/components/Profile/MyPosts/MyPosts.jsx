@@ -25,7 +25,7 @@ const MyPosts = () => {
       },
    ]
 
-
+   let postsElement = postData.map(p => <MyPost src={p.src} text={p.message} like={p.like}/>)
    return (
       <div className={posts.myPosts}>
          <h3 className={posts.title}>My posts</h3>
@@ -33,21 +33,7 @@ const MyPosts = () => {
          <textarea name="posts" className={posts.textArea}></textarea>
          <button className={posts.postsBtn}>OK</button>
          <div className={posts.postsItems}>
-            <MyPost
-               src={postData[0].src}
-               text={postData[0].message}
-               like={postData[0].like}
-            />
-            <MyPost
-               src={postData[1].src}
-               text={postData[1].message}
-               like={postData[1].like}
-            />
-            <MyPost
-               src={postData[2].src}
-               text={postData[2].message}
-               like={postData[2].like}
-            />
+            {postsElement}
          </div>
       </div>
    );

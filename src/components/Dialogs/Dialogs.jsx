@@ -30,22 +30,18 @@ const Dialogs = () => {
       {id: 2, message: 'How is your name?'},
       {id: 3, message: 'Dima )'},
    ]
+
+   let dialogs = dialogsData.map(d => <DialogItem name={d.name} id={d.id}/>);
+   let messages = messagesData.map(m => <Message text={m.message}/>)
+
    return (
       <div className={s.dialogs}>
          <div className={s.dialogsItems}>
-            <DialogItem name={dialogsData[0].name} id={dialogsData[0].id}/>
-            <DialogItem name={dialogsData[1].name} id={dialogsData[1].id}/>
-            <DialogItem name="Alona" id="3"/>
-            <DialogItem name="Igor" id="4"/>
-            <DialogItem name="Daniil" id="5"/>
-            <DialogItem name="Mama" id="6"/>
-            <NavLink to="/dialogs/1" className={s.dialog + ' ' + s.active}>Igor</NavLink>
-
+            {dialogs}
+            {/*<NavLink to="/dialogs/1" className={s.dialog + ' ' + s.active}>Igor</NavLink>*/}
          </div>
          <div className={s.messages}>
-            <Message text={messagesData[0].message}/>
-            <Message text={messagesData[1].message}/>
-            <Message text={messagesData[2].message}/>
+            {messages}
          </div>
       </div>
    )
