@@ -21,6 +21,10 @@
     padding: 10px;
 }
 
+.message {
+    margin-bottom: 10px;
+}
+
 .dialog {
     min-height: 50px;
     display: flex;
