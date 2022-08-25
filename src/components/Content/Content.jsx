@@ -17,8 +17,6 @@ const Content = () => {
          {/*<Dialogs/>*/}
          {/*<Profile />*/}
       </div>
-
-
    );
 };
 
