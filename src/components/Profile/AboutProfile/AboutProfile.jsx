@@ -12,10 +12,10 @@ const AboutProfile = () => {
          </div>
          <div className={s.aboutInfo}>
             <div className={s.aboutName}>Ruslan S.</div>
-            <div className={s.aboutDate}>Date of Birth: <strong>14 january</strong></div>
-            <div className={s.aboutCity}>City: <strong>Namestovo</strong></div>
+            <div className={s.aboutDate}>Date of Birth:&nbsp;<strong>14 january</strong></div>
+            <div className={s.aboutCity}>City:&nbsp;<strong>Namestovo</strong></div>
             <div className={s.aboutWebCite}>
-               Web-site:
+               Web-site: &nbsp;
                <a href="https://greenshop.ssenick.fun">
                   <strong>https://greenshop.ssenick.fun</strong>
                </a>

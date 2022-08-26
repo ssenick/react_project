@@ -12,7 +12,7 @@ const App = (props) => {
       <div className="App">
          <Header/>
          <Nav/>
-         <Content data={props.data}/>
+         <Content content={props.state.content}/>
          <Footer/>
       </div>
 
