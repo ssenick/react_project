@@ -21,29 +21,4 @@
     padding: 10px;
 }
 
-.message {
-    margin-bottom: 10px;
-}
 
-.dialog {
-    min-height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #fcee9e;
-    border-radius: 5px;
-    color: #006C51;
-    font-weight: 500;
-    font-size: 16px;
-    cursor: pointer;
-    transition: all 0.3s ease 0s;
-}
-
-.dialog:hover {
-    background-color: #fae86b;
-}
-
-.dialog.active {
-    background-color: #f8db3b;
-    color: red;
-}
