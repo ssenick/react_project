@@ -16,8 +16,6 @@ const Content = (props) => {
                    element={<Dialogs dialogsPage={props.content.dialogsPage}/>}/>
             <Route path="*" element={<Notfound/>}/>
          </Routes>
-         {/*<Message/>*/}
-         {/*<Profile />*/}
       </div>
    );
 };
