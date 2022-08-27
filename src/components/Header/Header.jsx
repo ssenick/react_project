@@ -1,15 +1,19 @@
 import React from "react";
-import h from "./Header.module.css";
+import h from "./Header.module.scss";
 
 const Header = () => {
-  return (
-    <header className={h.header}>
-      <img
-        src="https://w7.pngwing.com/pngs/786/126/png-transparent-logo-contracting-photography-logo-symbol.png"
-        alt=""
-      />
-      <span> Header</span>
-    </header>
-  );
+   return (
+      <header className={h.header}>
+         <div className={h.logo}>
+            <img
+               src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png"
+               alt=""/>
+         </div>
+         <div className={h.info}>
+            <span>Social APP</span>
+         </div>
+
+      </header>
+   );
 };
 export default Header;

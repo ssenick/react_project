@@ -6,11 +6,11 @@
   justify-content: start;
   grid-template-columns: 20% 1fr;
   grid-auto-rows: 100px 1fr 100px;
-  gap: 10px;
+  gap: 20px;
   grid-template-areas: 'header header'
-	'nav profile'
+	'aside profile'
 	'footer footer';
-  padding: 10px;
+  padding: 20px 30px;
 
 }
 
@@ -21,3 +21,4 @@ a {
 a:hover {
   text-decoration: underline;
 }
+

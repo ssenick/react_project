@@ -1,5 +1,5 @@
 import React from "react";
-import posts from "./MyPosts.module.css";
+import posts from "./MyPosts.module.scss";
 import MyPost from "./Post/MyPost";
 
 
@@ -11,6 +11,7 @@ const MyPosts = (props) => {
          <textarea name="posts" className={posts.textArea}></textarea>
          <button className={posts.postsBtn}>OK</button>
          <div className={posts.postsItems}>
+
             {postsElement}
          </div>
       </div>

@@ -1,0 +1,11 @@
+.friends {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+  column-gap: 10px;
+  row-gap: 25px;
+  background-color: #151d34;
+  margin: -5px;
+  padding: 5px;
+  border-radius: 10px;
+  border: 2px solid #294054;
+}

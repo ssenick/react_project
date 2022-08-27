@@ -1,0 +1,31 @@
+.dialogs {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 15px;
+  height: 100%;
+  background-color: #1e2842;
+  padding: 15px;
+
+  .dialogsItems {
+    grid-column: span 4;
+    background-color: #151d34;
+    padding: 15px;
+    display: grid;
+    align-content: start;
+    gap: 15px;
+    border-radius: 10px;
+  }
+
+  .messages {
+    grid-column: span 8;
+    background-color: #151d34;
+    padding: 15px;
+    border-radius: 10px;
+    color: #fff;
+  }
+
+}
+
+
+
+

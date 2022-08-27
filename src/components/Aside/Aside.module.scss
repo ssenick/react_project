@@ -1,0 +1,9 @@
+.aside {
+  grid-area: aside;
+  background-color: #1e2842;
+  padding: 50px 20px 50px 20px;
+  display: grid;
+  align-content: start;
+  gap: 15%;
+  border-radius: 10px;
+}
