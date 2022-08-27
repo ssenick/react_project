@@ -1,4 +1,4 @@
-import AboutProfile from "../components/Content/Profile/AboutProfile/AboutProfile";
+import renderEntireTree from "./render";
 
 let state = {
    content: {
@@ -45,8 +45,23 @@ let state = {
                like: '100',
                src: "https://krot.info/uploads/posts/2022-03/1646115263_2-krot-info-p-smeshnie-sobaki-smeshnie-foto-2.jpg"
             },
-         ]
+         ],
+         addNewPost: (postMessage, postSrcImage) => {
+            if (postMessage === '') {
+               alert("You didn't enter text")
+               return
+            }
+            let newPost = {
+               id: state.content.profilePage.postData.length + 1,
+               message: postMessage,
+               like: '0',
+               src: postSrcImage,
+            };
+            state.content.profilePage.postData.push(newPost);
+            renderEntireTree(state);
+         }
       },
+
    },
    aside: {
       navList: [
@@ -75,7 +90,20 @@ let state = {
          },
 
       ]
-   }
-}
+   },
 
+
+}
+//
+// export let addNewPost = (postMessage, postSrcImage) => {
+//    let newPost = {
+//       id: state.content.profilePage.postData.length + 1,
+//       message: postMessage,
+//       like: '0',
+//       src: postSrcImage,
+//    };
+//    state.content.profilePage.postData.push(newPost);
+//    renderEntireTree(state)
+//
+// }
 export default state;
