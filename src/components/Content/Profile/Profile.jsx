@@ -2,6 +2,7 @@ import React from "react";
 import prof from "./Profile.module.scss";
 import MyPosts from "./MyPosts/MyPosts";
 import AboutProfile from "./AboutProfile/AboutProfile";
+import {addNewPost, updateTextArea, updateTextInput} from "../../../redux/state";
 
 const Profile = (props) => {
    return (
@@ -14,7 +15,14 @@ const Profile = (props) => {
          </div>
          <div className={prof.profileContent}>
             <AboutProfile aboutProfile={props.profilePage.aboutProfile}/>
-            <MyPosts postData={props.profilePage.postData} addNewPost={props.profilePage.addNewPost}/>
+            <MyPosts
+               newPostText={props.profilePage.posts.newPostText}
+               postData={props.profilePage.posts.postData}
+               addNewPost={addNewPost}
+               updateTextArea={updateTextArea}
+               updateTextInput={updateTextInput}
+
+            />
          </div>
       </div>
    );

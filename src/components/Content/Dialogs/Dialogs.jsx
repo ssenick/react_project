@@ -5,7 +5,6 @@ import Message from "./Message/Message";
 
 const Dialogs = (props) => {
    let textarea = React.createRef();
-
    return (
       <div className={s.dialogs}>
          <div className={s.dialogsItems}>
@@ -19,8 +18,14 @@ const Dialogs = (props) => {
                   .map((m, i) => <Message key={i} text={m.message}/>)}
             </div>
             <div className={s.messageAction}>
-               <textarea ref={textarea} className={s.messageTextarea}></textarea>
-               <button onClick={() => alert(textarea.current.value !== '' ? textarea.current.value : 'Ops')}
+               <textarea onChange={() => {
+                  props.updateTextAreaMessage(textarea.current.value)
+
+               }} ref={textarea} value={props.dialogsPage.textArea} className={s.messageTextarea}></textarea>
+
+               <button onClick={() => {
+                  props.addNewMessage();
+               }}
                        className={s.messageBtn}>Send
                </button>
             </div>

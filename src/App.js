@@ -5,6 +5,7 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Content from "./components/Content/Content";
 import Aside from "./components/Aside/Aside";
+import {addNewMessage, addNewPost, updateTextArea, updateTextAreaMessage, updateTextInput} from "./redux/state";
 
 
 const App = (props) => {
@@ -13,7 +14,13 @@ const App = (props) => {
       <div className="App">
          <Header/>
          <Aside aside={props.state.aside}/>
-         <Content content={props.state.content}/>
+         <Content content={props.state.content}
+                  addNewPost={addNewPost}
+                  updateTextArea={updateTextArea}
+                  updateTextInput={updateTextInput}
+                  addNewMessage={addNewMessage}
+                  updateTextAreaMessage={updateTextAreaMessage}/>
+
          <Footer/>
       </div>
 

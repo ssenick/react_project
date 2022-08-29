@@ -1,4 +1,5 @@
-import renderEntireTree from "./render";
+let renderEntireTree;
+
 
 let state = {
    content: {
@@ -16,6 +17,7 @@ let state = {
             {id: 2, message: 'How is your name?'},
             {id: 3, message: 'Dima )'},
          ],
+         textArea: '',
       },
       profilePage: {
          aboutProfile: {
@@ -26,39 +28,55 @@ let state = {
             city: "Namestovo",
             href: "https://greenshop.ssenick.fun"
          },
-         postData: [
-            {
-               id: 1,
-               message: 'Post 1 Post 1 Post 1',
-               like: '1',
-               src: "https://s1.1zoom.me/big0/280/Dogs_Bulldog_Snout_479887.jpg"
+         posts: {
+            postData: [
+               {
+                  id: 1,
+                  message: 'Post 1 Post 1 Post 1',
+                  like: '1',
+                  src: "https://s1.1zoom.me/big0/280/Dogs_Bulldog_Snout_479887.jpg"
+               },
+               {
+                  id: 2,
+                  message: 'Post 2 Post 2 Post 2',
+                  like: '10',
+                  src: "https://oir.mobi/uploads/posts/2019-12/1576378395_1-2.png"
+               },
+               {
+                  id: 3,
+                  message: 'Post 3 Post 3 Post 3',
+                  like: '100',
+                  src: "https://krot.info/uploads/posts/2022-03/1646115263_2-krot-info-p-smeshnie-sobaki-smeshnie-foto-2.jpg"
+               },
+            ],
+            newPostText: {
+               textArea: '',
+               textInput: '',
             },
-            {
-               id: 2,
-               message: 'Post 2 Post 2 Post 2',
-               like: '10',
-               src: "https://oir.mobi/uploads/posts/2019-12/1576378395_1-2.png"
-            },
-            {
-               id: 3,
-               message: 'Post 3 Post 3 Post 3',
-               like: '100',
-               src: "https://krot.info/uploads/posts/2022-03/1646115263_2-krot-info-p-smeshnie-sobaki-smeshnie-foto-2.jpg"
-            },
-         ],
-         addNewPost: (postMessage, postSrcImage) => {
-            if (postMessage === '') {
-               alert("You didn't enter text")
-               return
-            }
-            let newPost = {
-               id: state.content.profilePage.postData.length + 1,
-               message: postMessage,
-               like: '0',
-               src: postSrcImage,
-            };
-            state.content.profilePage.postData.push(newPost);
-            renderEntireTree(state);
+            // addNewPost: function () {
+            //    if (this.newPostText.textArea === '') {
+            //       alert("You didn't enter text")
+            //       return
+            //    }
+            //    let newPost = {
+            //       id: this.postData.length + 1,
+            //       message: this.newPostText.textArea,
+            //       like: '0',
+            //       src: this.newPostText.textInput,
+            //    };
+            //    this.postData.push(newPost);
+            //    renderEntireTree(state);
+            //    this.newPostText.textArea = '';
+            //    this.newPostText.textInput = '';
+            // },
+            // updateTextArea: function (text) {
+            //    this.newPostText.textArea = text;
+            //    renderEntireTree(state);
+            // },
+            // updateTextInput: function (text) {
+            //    this.newPostText.textInput = text;
+            //    renderEntireTree(state);
+            // }
          }
       },
 
@@ -91,19 +109,54 @@ let state = {
 
       ]
    },
-
-
 }
-//
-// export let addNewPost = (postMessage, postSrcImage) => {
-//    let newPost = {
-//       id: state.content.profilePage.postData.length + 1,
-//       message: postMessage,
-//       like: '0',
-//       src: postSrcImage,
-//    };
-//    state.content.profilePage.postData.push(newPost);
-//    renderEntireTree(state)
-//
-// }
+
+export const addNewPost = () => {
+   if (state.content.profilePage.posts.newPostText.textArea === '') {
+      alert("You didn't enter text")
+      return
+   }
+   let newPost = {
+      id: state.content.profilePage.posts.postData.length + 1,
+      message: state.content.profilePage.posts.newPostText.textArea,
+      like: '0',
+      src: state.content.profilePage.posts.newPostText.textInput,
+   };
+   state.content.profilePage.posts.postData.push(newPost);
+   renderEntireTree(state);
+   state.content.profilePage.posts.newPostText.textArea = '';
+   state.content.profilePage.posts.newPostText.textInput = '';
+}
+export const updateTextArea = (text) => {
+   state.content.profilePage.posts.newPostText.textArea = text;
+   renderEntireTree(state);
+}
+export const updateTextInput = (text) => {
+   state.content.profilePage.posts.newPostText.textInput = text;
+   renderEntireTree(state);
+}
+
+
+export const addNewMessage = () => {
+   if (state.content.dialogsPage.textArea === '') {
+      return
+   }
+   let newMessage = {
+      id: state.content.dialogsPage.dialogsData.length + 1,
+      message: state.content.dialogsPage.textArea
+   };
+   state.content.dialogsPage.messagesData.push(newMessage);
+   renderEntireTree(state);
+   state.content.dialogsPage.textArea = '';
+};
+export const updateTextAreaMessage = (text) => {
+   state.content.dialogsPage.textArea = text;
+   renderEntireTree(state);
+};
+
+
+export const subscribe = (observer) => {
+   renderEntireTree = observer;
+}
+
 export default state;
