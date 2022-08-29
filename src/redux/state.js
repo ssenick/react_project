@@ -53,30 +53,7 @@ let state = {
                textArea: '',
                textInput: '',
             },
-            // addNewPost: function () {
-            //    if (this.newPostText.textArea === '') {
-            //       alert("You didn't enter text")
-            //       return
-            //    }
-            //    let newPost = {
-            //       id: this.postData.length + 1,
-            //       message: this.newPostText.textArea,
-            //       like: '0',
-            //       src: this.newPostText.textInput,
-            //    };
-            //    this.postData.push(newPost);
-            //    renderEntireTree(state);
-            //    this.newPostText.textArea = '';
-            //    this.newPostText.textInput = '';
-            // },
-            // updateTextArea: function (text) {
-            //    this.newPostText.textArea = text;
-            //    renderEntireTree(state);
-            // },
-            // updateTextInput: function (text) {
-            //    this.newPostText.textInput = text;
-            //    renderEntireTree(state);
-            // }
+             
          }
       },
 
