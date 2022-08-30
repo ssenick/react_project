@@ -1,6 +1,5 @@
 let renderEntireTree;
 
-
 let state = {
    content: {
       dialogsPage: {
@@ -53,7 +52,7 @@ let state = {
                textArea: '',
                textInput: '',
             },
-             
+
          }
       },
 
@@ -112,8 +111,6 @@ export const updateTextInput = (text) => {
    state.content.profilePage.posts.newPostText.textInput = text;
    renderEntireTree(state);
 }
-
-
 export const addNewMessage = () => {
    if (state.content.dialogsPage.textArea === '') {
       return
@@ -135,5 +132,6 @@ export const updateTextAreaMessage = (text) => {
 export const subscribe = (observer) => {
    renderEntireTree = observer;
 }
+
 
 export default state;

@@ -5,6 +5,7 @@ import AboutProfile from "./AboutProfile/AboutProfile";
 import {addNewPost, updateTextArea, updateTextInput} from "../../../redux/state";
 
 const Profile = (props) => {
+
    return (
       <div className={prof.profile}>
          <div className={prof.profileImage}>
