@@ -2,7 +2,7 @@ import React from "react";
 import prof from "./Profile.module.scss";
 import MyPosts from "./MyPosts/MyPosts";
 import AboutProfile from "./AboutProfile/AboutProfile";
-import {addNewPost, updateTextArea, updateTextInput} from "../../../redux/state";
+
 
 const Profile = (props) => {
 
@@ -19,10 +19,9 @@ const Profile = (props) => {
             <MyPosts
                newPostText={props.profilePage.posts.newPostText}
                postData={props.profilePage.posts.postData}
-               addNewPost={addNewPost}
-               updateTextArea={updateTextArea}
-               updateTextInput={updateTextInput}
-
+               addNewPost={props.addNewPost}
+               updateTextArea={props.updateTextArea}
+               updateTextInput={props.updateTextInput}
             />
          </div>
       </div>

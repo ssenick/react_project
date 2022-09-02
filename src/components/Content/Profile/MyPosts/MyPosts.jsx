@@ -4,6 +4,7 @@ import MyPost from "./Post/MyPost";
 
 
 const MyPosts = (props) => {
+
    let textArea = React.createRef();
    let input = React.createRef();
    return (
