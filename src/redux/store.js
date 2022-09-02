@@ -107,6 +107,7 @@ let store = {
             like: '0',
             src: this._state.content.profilePage.posts.newPostText.textInput,
          };
+
          this._state.content.profilePage.posts.postData.push(newPost);
          this._callSubscriber(this._state);
          this._state.content.profilePage.posts.newPostText.textArea = '';
