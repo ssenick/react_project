@@ -11,20 +11,15 @@ const Content = (props) => {
          <Routes>
             <Route path="/"
                    element={<Profile profilePage={props.state.content.profilePage}
-                                     addNewPost={props.addNewPost}
-                                     updateTextArea={props.updateTextArea}
-                                     updateTextInput={props.updateTextInput}/>}/>
+                                     dispatch={props.dispatch}/>}/>
 
             <Route path="/profile"
                    element={<Profile profilePage={props.state.content.profilePage}
-                                     addNewPost={props.addNewPost}
-                                     updateTextArea={props.updateTextArea}
-                                     updateTextInput={props.updateTextInput}/>}/>
+                                     dispatch={props.dispatch}/>}/>
 
             <Route path="/dialogs"
                    element={<Dialogs dialogsPage={props.state.content.dialogsPage}
-                                     addNewMessage={props.addNewMessage}
-                                     updateTextAreaMessage={props.updateTextAreaMessage}/>}/>
+                                     dispatch={props.dispatch}/>}/>
             <Route path="*" element={<Notfound/>}/>
          </Routes>
       </div>

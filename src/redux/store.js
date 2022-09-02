@@ -83,53 +83,57 @@ let store = {
          ]
       },
    },
-   addNewPost() {
-      if (this._state.content.profilePage.posts.newPostText.textArea === '') {
-         alert("You didn't enter text")
-         return
-      }
-      let newPost = {
-         id: this._state.content.profilePage.posts.postData.length + 1,
-         message: this._state.content.profilePage.posts.newPostText.textArea,
-         like: '0',
-         src: this._state.content.profilePage.posts.newPostText.textInput,
-      };
-      this._state.content.profilePage.posts.postData.push(newPost);
-      this._callSubscriber(this._state);
-      this._state.content.profilePage.posts.newPostText.textArea = '';
-      this._state.content.profilePage.posts.newPostText.textInput = '';
-   },
-   updateTextArea(text) {
-      this._state.content.profilePage.posts.newPostText.textArea = text;
-      this._callSubscriber(this._state);
-   },
-   updateTextInput(text) {
-      this._state.content.profilePage.posts.newPostText.textInput = text;
-      this._callSubscriber(this._state);
-   },
-   addNewMessage() {
-      if (this._state.content.dialogsPage.textArea === '') {
-         return
-      }
-      let newMessage = {
-         id: this._state.content.dialogsPage.dialogsData.length + 1,
-         message: this._state.content.dialogsPage.textArea
-      };
-      this._state.content.dialogsPage.messagesData.push(newMessage);
-      this._callSubscriber(this._state);
-      this._state.content.dialogsPage.textArea = '';
-   },
-   updateTextAreaMessage(text) {
-      this._state.content.dialogsPage.textArea = text;
-      this._callSubscriber(this._state);
-   },
    _callSubscriber() {
    },
+
+
    subscribe(observer) {
       this._callSubscriber = observer;
    },
    getState() {
       return this._state;
+   },
+
+
+   dispatch(action) {
+      if (action.type === 'ADD-NEW-POST') {
+         if (this._state.content.profilePage.posts.newPostText.textArea === '') {
+            alert("You didn't enter text")
+            return
+         }
+         let newPost = {
+            id: this._state.content.profilePage.posts.postData.length + 1,
+            message: this._state.content.profilePage.posts.newPostText.textArea,
+            like: '0',
+            src: this._state.content.profilePage.posts.newPostText.textInput,
+         };
+         this._state.content.profilePage.posts.postData.push(newPost);
+         this._callSubscriber(this._state);
+         this._state.content.profilePage.posts.newPostText.textArea = '';
+         this._state.content.profilePage.posts.newPostText.textInput = '';
+      } else if (action.type === "UPDATE-TEXT-AREA-MESSAGE") {
+         this._state.content.dialogsPage.textArea = action.text;
+         this._callSubscriber(this._state);
+      } else if (action.type === 'UPDATE-TEXT-AREA') {
+         this._state.content.profilePage.posts.newPostText.textArea = action.text;
+         this._callSubscriber(this._state);
+      } else if (action.type === 'UPDATE-TEXT-INPUT') {
+         this._state.content.profilePage.posts.newPostText.textInput = action.text;
+         this._callSubscriber(this._state);
+      } else if (action.type === 'ADD-NEW-MESSAGE') {
+         if (this._state.content.dialogsPage.textArea === '') {
+            return
+         }
+         let newMessage = {
+            id: this._state.content.dialogsPage.dialogsData.length + 1,
+            message: this._state.content.dialogsPage.textArea
+         };
+         this._state.content.dialogsPage.messagesData.push(newMessage);
+         this._callSubscriber(this._state);
+         this._state.content.dialogsPage.textArea = '';
+      }
    }
+
+
 }
 export default store;

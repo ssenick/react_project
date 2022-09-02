@@ -5,7 +5,6 @@ import AboutProfile from "./AboutProfile/AboutProfile";
 
 
 const Profile = (props) => {
-
    return (
       <div className={prof.profile}>
          <div className={prof.profileImage}>
@@ -19,9 +18,7 @@ const Profile = (props) => {
             <MyPosts
                newPostText={props.profilePage.posts.newPostText}
                postData={props.profilePage.posts.postData}
-               addNewPost={props.addNewPost}
-               updateTextArea={props.updateTextArea}
-               updateTextInput={props.updateTextInput}
+               dispatch={props.dispatch}
             />
          </div>
       </div>

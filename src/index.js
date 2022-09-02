@@ -11,12 +11,7 @@ export let renderEntireTree = (state) => {
    root.render(
       <BrowserRouter>
          <React.StrictMode>
-            <App state={state} addNewPost={store.addNewPost.bind(store)}
-                 updateTextArea={store.updateTextArea.bind(store)}
-                 updateTextInput={store.updateTextInput.bind(store)}
-                 addNewMessage={store.addNewMessage.bind(store)}
-                 updateTextAreaMessage={store.updateTextAreaMessage.bind(store)}
-            />
+            <App state={state} dispatch={store.dispatch.bind(store)}/>
          </React.StrictMode>
       </BrowserRouter>
    );

@@ -19,14 +19,13 @@ const Dialogs = (props) => {
             </div>
             <div className={s.messageAction}>
                <textarea onChange={() => {
-                  props.updateTextAreaMessage(textarea.current.value)
+                  props.dispatch({type: 'UPDATE-TEXT-AREA-MESSAGE', text: textarea.current.value})
 
                }} ref={textarea} value={props.dialogsPage.textArea} className={s.messageTextarea}></textarea>
 
                <button onClick={() => {
-                  props.addNewMessage();
-               }}
-                       className={s.messageBtn}>Send
+                  props.dispatch({type: 'ADD-NEW-MESSAGE'});
+               }} className={s.messageBtn}>Send
                </button>
             </div>
          </div>

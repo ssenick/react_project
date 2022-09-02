@@ -11,13 +11,7 @@ const App = (props) => {
       <div className="App">
          <Header/>
          <Aside aside={props.state.aside}/>
-         <Content state={props.state}
-                  updateTextArea={props.updateTextArea}
-                  updateTextInput={props.updateTextInput}
-                  addNewMessage={props.addNewMessage}
-                  updateTextAreaMessage={props.updateTextAreaMessage}
-                  addNewPost={props.addNewPost}/>
-
+         <Content state={props.state} dispatch={props.dispatch}/>
          <Footer/>
       </div>
 

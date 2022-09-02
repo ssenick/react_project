@@ -13,17 +13,17 @@ const MyPosts = (props) => {
          <h2 className={s.label}>Enter post text</h2>
 
          <textarea onChange={() => {
-            props.updateTextArea(textArea.current.value)
+            props.dispatch({type: 'UPDATE-TEXT-AREA', text: textArea.current.value})
          }} ref={textArea} value={props.newPostText.textArea} className={s.textArea}></textarea>
 
          <h2 className={s.label}>Enter image link</h2>
 
          <input onChange={() => {
-            props.updateTextInput(input.current.value)
+            props.dispatch({type: 'UPDATE-TEXT-INPUT', text: input.current.value})
          }} ref={input} value={props.newPostText.textInput} className={s.input}></input>
 
          <button onClick={() => {
-            props.addNewPost();
+            props.dispatch({type: 'ADD-NEW-POST'});
 
          }} className={s.postsBtn}>Send
          </button>
