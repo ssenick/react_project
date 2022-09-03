@@ -2,31 +2,35 @@ import React from "react";
 import s from "./Dialogs.module.scss";
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
+import {sendMessageCreator, updateMessageTextCreator} from "../../../redux/dialogs-reducer";
 
 const Dialogs = (props) => {
+   const dialogsItems = props.dialogsPage.dialogsData
+      .map((d, i) => <DialogItem key={i} name={d.name} id={d.id}/>)
+   const messagesItems = props.dialogsPage.messagesData
+      .map((m, i) => <Message key={i} text={m.message}/>)
    let textarea = React.createRef();
+   const onChangeArea = () => {
+      props.dispatch(updateMessageTextCreator(textarea.current.value))
+   }
+   const onClickBtn = () => {
+      props.dispatch(sendMessageCreator());
+   }
+
+
    return (
       <div className={s.dialogs}>
          <div className={s.dialogsItems}>
-            {props.dialogsPage.dialogsData
-               .map((d, i) => <DialogItem key={i} name={d.name} id={d.id}/>)}
-            {/*<NavLink to="/dialogs/1" className={s.dialog + ' ' + s.active}>Igor</NavLink>*/}
+            {dialogsItems}
          </div>
          <div className={s.blockMessages}>
             <div className={s.messages}>
-               {props.dialogsPage.messagesData
-                  .map((m, i) => <Message key={i} text={m.message}/>)}
+               {messagesItems}
             </div>
             <div className={s.messageAction}>
-               <textarea onChange={() => {
-                  props.dispatch({type: 'UPDATE-TEXT-AREA-MESSAGE', text: textarea.current.value})
-
-               }} ref={textarea} value={props.dialogsPage.textArea} className={s.messageTextarea}></textarea>
-
-               <button onClick={() => {
-                  props.dispatch({type: 'ADD-NEW-MESSAGE'});
-               }} className={s.messageBtn}>Send
-               </button>
+               <textarea onChange={() => onChangeArea()} ref={textarea} value={props.dialogsPage.textArea}
+                         className={s.messageTextarea}></textarea>
+               <button onClick={() => onClickBtn()} className={s.messageBtn}>Send</button>
             </div>
          </div>
       </div>

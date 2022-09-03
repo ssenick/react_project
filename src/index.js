@@ -6,6 +6,7 @@ import React from "react";
 import App from "./App";
 import store from "./redux/store";
 
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 export let renderEntireTree = (state) => {
    root.render(

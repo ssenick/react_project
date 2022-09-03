@@ -1,3 +1,6 @@
+import profileReducer from "./profile-reducer";
+import dialogsReducer from "./dialogs-reducer";
+
 let store = {
    _state: {
       content: {
@@ -86,7 +89,6 @@ let store = {
    _callSubscriber() {
    },
 
-
    subscribe(observer) {
       this._callSubscriber = observer;
    },
@@ -96,45 +98,11 @@ let store = {
 
 
    dispatch(action) {
-      if (action.type === 'ADD-NEW-POST') {
-         if (this._state.content.profilePage.posts.newPostText.textArea === '') {
-            alert("You didn't enter text")
-            return
-         }
-         let newPost = {
-            id: this._state.content.profilePage.posts.postData.length + 1,
-            message: this._state.content.profilePage.posts.newPostText.textArea,
-            like: '0',
-            src: this._state.content.profilePage.posts.newPostText.textInput,
-         };
-
-         this._state.content.profilePage.posts.postData.push(newPost);
-         this._callSubscriber(this._state);
-         this._state.content.profilePage.posts.newPostText.textArea = '';
-         this._state.content.profilePage.posts.newPostText.textInput = '';
-      } else if (action.type === "UPDATE-TEXT-AREA-MESSAGE") {
-         this._state.content.dialogsPage.textArea = action.text;
-         this._callSubscriber(this._state);
-      } else if (action.type === 'UPDATE-TEXT-AREA') {
-         this._state.content.profilePage.posts.newPostText.textArea = action.text;
-         this._callSubscriber(this._state);
-      } else if (action.type === 'UPDATE-TEXT-INPUT') {
-         this._state.content.profilePage.posts.newPostText.textInput = action.text;
-         this._callSubscriber(this._state);
-      } else if (action.type === 'ADD-NEW-MESSAGE') {
-         if (this._state.content.dialogsPage.textArea === '') {
-            return
-         }
-         let newMessage = {
-            id: this._state.content.dialogsPage.dialogsData.length + 1,
-            message: this._state.content.dialogsPage.textArea
-         };
-         this._state.content.dialogsPage.messagesData.push(newMessage);
-         this._callSubscriber(this._state);
-         this._state.content.dialogsPage.textArea = '';
-      }
+      this._state.content.profilePage.posts = profileReducer(this._state.content.profilePage.posts, action);
+      this._state.content.dialogsPage = dialogsReducer(this._state.content.dialogsPage, action);
+      this._callSubscriber(this._state);
    }
-
-
 }
+
+
 export default store;

@@ -16,7 +16,7 @@ const AboutProfile = (props) => {
             <div className={s.aboutCity}>City:&nbsp;<strong>{props.aboutProfile.city}</strong></div>
             <div className={s.aboutWebCite}>
                Web-site: &nbsp;
-               <a target="_blank" href={props.aboutProfile.href}>
+               <a href={props.aboutProfile.href}>
                   <strong>{props.aboutProfile.href}</strong>
                </a>
             </div>
