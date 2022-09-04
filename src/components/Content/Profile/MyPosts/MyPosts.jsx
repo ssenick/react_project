@@ -3,7 +3,6 @@ import s from "./MyPosts.module.scss";
 import MyPost from "./Post/MyPost";
 
 const MyPosts = (props) => {
-   debugger
    const postsItems = props.postData
       .map((p, i) => <MyPost id={p.id} key={i} src={p.src} text={p.message} like={p.like}/>);
    const textArea = React.createRef();

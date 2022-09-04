@@ -7,6 +7,7 @@ const DialogsContainer = (props) => {
    const onChangeArea = (text) => {
       props.store.dispatch(updateMessageTextCreator(text))
    }
+
    const onClickBtn = () => {
       props.store.dispatch(sendMessageCreator());
    }
