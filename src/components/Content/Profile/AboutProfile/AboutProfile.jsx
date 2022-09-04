@@ -2,6 +2,7 @@ import React from "react";
 import s from "./AboutProfile.module.scss";
 
 const AboutProfile = (props) => {
+
    return (
       <div className={s.aboutProfile}>
          <div className={s.aboutAvatar}>
