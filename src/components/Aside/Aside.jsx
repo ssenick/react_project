@@ -9,8 +9,6 @@ const Aside = (props) => {
       <aside className={s.aside}>
          <NavContainer store={props.store}/>
          <FriendsContainer store={props.store}/>
-         {/*<Nav navList={props.aside.navList}/>*/}
-         {/*<Friends friends={props.aside.friends}/>*/}
       </aside>
 
    );
