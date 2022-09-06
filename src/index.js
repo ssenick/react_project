@@ -6,15 +6,16 @@ import React from "react";
 import App from "./App";
 // import store from "./redux/store";
 import store from "./redux/redux-store";
+import {Provider} from "react-redux";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 export let renderEntireTree = () => {
    root.render(
       <BrowserRouter>
          <React.StrictMode>
-
-         <App store={store} dispatch={store.dispatch.bind(store)}/>
-
+            <Provider store={store}>
+               <App/>
+            </Provider>
          </React.StrictMode>
       </BrowserRouter>
    );

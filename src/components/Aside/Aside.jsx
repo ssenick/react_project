@@ -4,11 +4,11 @@ import NavContainer from "./Nav/NavContainer";
 import FriendsContainer from "./Friends/FriendContainer";
 
 
-const Aside = (props) => {
+const Aside = () => {
    return (
       <aside className={s.aside}>
-         <NavContainer store={props.store}/>
-         <FriendsContainer store={props.store}/>
+         <NavContainer/>
+         <FriendsContainer/>
       </aside>
 
    );

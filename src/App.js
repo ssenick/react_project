@@ -8,13 +8,13 @@ import Footer from "./components/Footer/Footer";
 import Content from "./components/Content/Content";
 import Aside from "./components/Aside/Aside";
 
-const App = (props) => {
+const App = () => {
 
    return (
       <div className="App">
          <Header/>
-         <Aside store={props.store}/>
-         <Content store={props.store}/>
+         <Aside/>
+         <Content/>
          <Footer/>
       </div>
 

@@ -4,7 +4,7 @@ import AboutProfileContainer from "./AboutProfile/AboutProfileContainer";
 import MyPostsContainer from "./MyPosts/MyPostsContainer";
 
 
-const Profile = (props) => {
+const Profile = () => {
    return (
       <div className={prof.profile}>
          <div className={prof.profileImage}>
@@ -14,8 +14,8 @@ const Profile = (props) => {
             />
          </div>
          <div className={prof.profileContent}>
-            <AboutProfileContainer store={props.store}/>
-            <MyPostsContainer store={props.store}/>
+            <AboutProfileContainer/>
+            <MyPostsContainer/>
          </div>
       </div>
    );
