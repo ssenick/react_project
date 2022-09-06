@@ -11,6 +11,7 @@ let reducers = combineReducers({
    aside: asideReduce,
 });
 
+
 let store = createStore(reducers);
 
 export default store;
