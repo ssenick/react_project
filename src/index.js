@@ -9,21 +9,17 @@ import store from "./redux/redux-store";
 import {Provider} from "react-redux";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-export let renderEntireTree = () => {
-   root.render(
-      <BrowserRouter>
-         <React.StrictMode>
-            <Provider store={store}>
-               <App/>
-            </Provider>
-         </React.StrictMode>
-      </BrowserRouter>
-   );
-}
+root.render(
+   <BrowserRouter>
+      <React.StrictMode>
+         <Provider store={store}>
+            <App/>
+         </Provider>
+      </React.StrictMode>
+   </BrowserRouter>
+);
 
-renderEntireTree(store.getState());
 
-store.subscribe(renderEntireTree);
 // store.subscribe(() => {
 //    let state = store.getState();
 //    renderEntireTree(state)

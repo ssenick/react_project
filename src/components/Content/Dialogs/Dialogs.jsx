@@ -15,8 +15,6 @@ const Dialogs = (props) => {
    // const onClickBtn = () => {
    //    props.dispatch(sendMessageCreator());
    // }
-
-
    return (
       <div className={s.dialogs}>
          <div className={s.dialogsItems}>

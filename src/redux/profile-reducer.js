@@ -41,6 +41,7 @@ let initialState = {
 const profileReducer = (state = initialState, action) => {
    switch (action.type) {
       case ADD_NEW_POST:
+         let newState1;
          if (state.posts.newPostText.textArea === '') {
             alert("You didn't enter text")
             return state
@@ -51,16 +52,25 @@ const profileReducer = (state = initialState, action) => {
             like: '0',
             src: state.posts.newPostText.textInput,
          };
-         state.posts.postData.push(newPost);
-         state.posts.newPostText.textArea = '';
-         state.posts.newPostText.textInput = '';
-         return state;
+         newState1 = {...state}
+         newState1.posts.postData = [...state.posts.postData];
+         newState1.posts.postData.push(newPost);
+         newState1.posts.newPostText = {...state.posts.newPostText}
+         newState1.posts.newPostText.textArea = '';
+         newState1.posts.newPostText.textInput = '';
+         return newState1;
       case UPDATE_TEXT_AREA:
-         state.posts.newPostText.textArea = action.text;
-         return state;
+         let newState2 = {...state}
+         newState2.posts = {...state.posts}
+         newState2.posts.newPostText = {...state.posts.newPostText}
+         newState2.posts.newPostText.textArea = action.text;
+         return newState2;
       case UPDATE_TEXT_INPUT:
-         state.posts.newPostText.textInput = action.text;
-         return state;
+         let newState3 = {...state}
+         newState3.posts = {...state.posts}
+         newState3.posts.newPostText = {...state.posts.newPostText}
+         newState3.posts.newPostText.textInput = action.text;
+         return newState3;
       default:
          return state;
    }
