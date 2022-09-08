@@ -20,9 +20,10 @@ let initialState = {
 const dialogsReducer = (state = initialState, action) => {
    switch (action.type) {
       case UPDATE_TEXT_AREA_MESSAGE:
-         let newState2 = {...state}
-         newState2.textArea = action.text;
-         return newState2;
+         return {
+            ...state,
+            textArea: action.text,
+         }
       case ADD_NEW_MESSAGE:
          if (state.textArea === '') {
             return state;
@@ -31,11 +32,13 @@ const dialogsReducer = (state = initialState, action) => {
             id: state.dialogsData.length + 1,
             message: state.textArea
          };
-         let newState = {...state}
-         newState.messagesData = [...state.messagesData]
-         newState.messagesData.push(newMessage);
-         newState.textArea = '';
-         return newState;
+         return {
+            ...state,
+            messagesData: [...state.messagesData, newMessage],
+            textArea: '',
+         }
+      // newState.messagesData.push(newMessage);
+      // newState.textArea = '';
       default:
          return state
    }
