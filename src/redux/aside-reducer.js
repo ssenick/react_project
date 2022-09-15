@@ -2,7 +2,9 @@ let initialState = {
    navList: [
       {id: 1, nameLink: 'Profile', to: "/profile"},
       {id: 2, nameLink: 'Messages', to: "/dialogs"},
+      {id: 4, nameLink: 'Users', to: "/users"},
       {id: 3, nameLink: 'Login', to: "/login"},
+
    ],
    friends: [
       {

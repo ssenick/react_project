@@ -41,7 +41,6 @@ let initialState = {
 const profileReducer = (state = initialState, action) => {
    switch (action.type) {
       case ADD_NEW_POST:
-         let newState1;
          if (state.posts.newPostText.textArea === '') {
             alert("You didn't enter text")
             return state
@@ -52,25 +51,59 @@ const profileReducer = (state = initialState, action) => {
             like: '0',
             src: state.posts.newPostText.textInput,
          };
-         newState1 = {...state}
-         newState1.posts.postData = [...state.posts.postData];
-         newState1.posts.postData.push(newPost);
-         newState1.posts.newPostText = {...state.posts.newPostText}
-         newState1.posts.newPostText.textArea = '';
-         newState1.posts.newPostText.textInput = '';
-         return newState1;
+
+         return {
+            ...state,
+            posts: {
+               ...state.posts,
+               postData: [...state.posts.postData, newPost],
+               newPostText: {
+                  ...state.posts.newPostText,
+                  textArea: '',
+                  textInput: "",
+               }
+            }
+         }
+
+      // newState1 = {...state}
+      // newState1.posts.postData = [...state.posts.postData];
+      // newState1.posts.postData.push(newPost);
+      // newState1.posts.newPostText = {...state.posts.newPostText}
+      // newState1.posts.newPostText.textArea = '';
+      // newState1.posts.newPostText.textInput = '';
+      // return newState1;
       case UPDATE_TEXT_AREA:
-         let newState2 = {...state}
-         newState2.posts = {...state.posts}
-         newState2.posts.newPostText = {...state.posts.newPostText}
-         newState2.posts.newPostText.textArea = action.text;
-         return newState2;
+         return {
+            ...state,
+            posts: {
+               ...state.posts,
+               newPostText: {
+                  ...state.posts.newPostText,
+                  textArea: action.text
+               }
+            }
+         }
+      // let newState2 = {...state}
+      // newState2.posts = {...state.posts}
+      // newState2.posts.newPostText = {...state.posts.newPostText}
+      // newState2.posts.newPostText.textArea = action.text;
+      // return newState2;
       case UPDATE_TEXT_INPUT:
-         let newState3 = {...state}
-         newState3.posts = {...state.posts}
-         newState3.posts.newPostText = {...state.posts.newPostText}
-         newState3.posts.newPostText.textInput = action.text;
-         return newState3;
+         return {
+            ...state,
+            posts: {
+               ...state.posts,
+               newPostText: {
+                  ...state.posts.newPostText,
+                  textInput: action.text
+               }
+            }
+         }
+      // let newState3 = {...state}
+      // newState3.posts = {...state.posts}
+      // newState3.posts.newPostText = {...state.posts.newPostText}
+      // newState3.posts.newPostText.textInput = action.text;
+      // return newState3;
       default:
          return state;
    }
