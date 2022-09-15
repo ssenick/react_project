@@ -11,6 +11,8 @@ const Users = (props) => {
             props.setUsers(response.data.items)
          });
    }
+
+
    return (
       <div className={s.users}>
          {props.users.map((user) => {
