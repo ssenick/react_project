@@ -5,7 +5,9 @@ import axios from "axios";
 
 const Users = (props) => {
 
+   console.log(22)
 
+   console.log()
    return (
       <div className={s.users}>
          {props.users.map((user) => {

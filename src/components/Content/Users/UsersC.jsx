@@ -1,41 +1,20 @@
 import React from 'react';
-import axios from "axios";
 import s from "./Users.module.scss";
 import Button from "../../UI/button/button";
 import avatar from "../../../assets/image/avatar.jpeg"
+import axios from "axios";
 
 class Users extends React.Component {
-   constructor(props) {
-      super(props);
-      props.setUsers([
-         {
-            id: 1,
-            status: true,
-            name: 'Ruslan',
-            surname: 'Ssenick',
-            statements: 'Learn and become stronger',
-            location: {city: 'Sumy', country: 'Ukraine'},
-            srcPhoto: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8RrbeDSBmhZT6psLXpEolt95PYJUnJXQeyltUgu9cTng4mEKG5ETeRbd-2KIglKnfG1s&usqp=CAU'
-         },
-         {
-            id: 2,
-            status: false,
-            name: 'Alona',
-            surname: 'Asenick',
-            statements: 'Learn and become stronger Learn and Learn and become stronger Learn and become stronger Learn and become stronger',
-            location: {city: 'Kharkiv', country: 'Ukraine'},
-            srcPhoto: 'https://happypik.ru/wp-content/uploads/2019/09/kartinki-sobak-s-nadpisjami13.jpg'
-         },
-         {
-            id: 3,
-            status: true,
-            name: 'Daniil',
-            surname: 'Lsenick',
-            statements: ' become stronger Learn and become stronger Learn and become stronger',
-            location: {city: 'Lviv', country: 'Ukraine'},
-            srcPhoto: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8RrbeDSBmhZT6psLXpEolt95PYJUnJXQeyltUgu9cTng4mEKG5ETeRbd-2KIglKnfG1s&usqp=CAU'
-         }
-      ])
+
+   async componentDidMount() {
+      axios.get("https://jsonplaceholder.typicode.com/todos/1")
+         .then((response) => {
+            console.log(response.data);
+            console.log(response.status);
+            console.log(response.statusText);
+            console.log(response.headers);
+            console.log(response.config);
+         })
    }
 
    render() {
